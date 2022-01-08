@@ -1,0 +1,7 @@
+*.jpeg
+*.jpg
+*.png
+
+.ipynb_checkpoints
+.DS_Store
+__pycache__
