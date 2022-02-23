@@ -12,11 +12,11 @@ The generalisation refers to predict unknown results (out sample) from known dat
 - To be learning, there must be multiple bins (hypothesis through the Hoeffding's indequality), and the upper bound gets loosen when the number of size of hypothesis set increases. Therefore the more complex is a model or hypothesis, the more reduced effect has Hoeffding. This is even maximized when adding M
 
 - Target function is better defined as probability function, because of noise targets
-- Base on in sample, we can calculate in sample error, and our goal is to reduce it. Affects to both the learning algorithm and hypothesis
+- Based on in sample, we can calculate in sample error, and our goal is to reduce it. Affects to both the learning algorithm and hypothesis
 - Learning is feasible in probabilistic sense. And this means that E_out is probably approximate to E_in.
 - Therefore, when we say a model had a good hypothesis and made a good learning process when E_out is close to 0. To achieve this, we have two parts:
   - E_out is close to E_in, this is bounded and guranteed by Hoeffdings inequality. If not bounded, you can train your best model in in sample, but have a terrible performance out sample. This reminds the train and test, only that in a more global sense, all our data is train and when the model is really under test is the out sample
-  - The second one is by tending close E_in, this is simply working with in sample data and try to minimize our errors. E.g. Least squares in linear regression
+  - The second one is by tending close E_in to 0, this is simply working with in sample data and try to minimize our errors. E.g. Least squares in linear regression
 - By completing the above two, will would have accomplished proving generalisation is possible, and our model can do well out sample too
 - So, we are now left with the problem of bounding Hoeffding inequality with M (which can be infinitive), and try to train our model to lower as much as we can E_in
 
@@ -83,11 +83,11 @@ The generalisation refers to predict unknown results (out sample) from known dat
 - We substitute sum(C(N, i), 0, k-1) to sum(C(N, i), 0, d), and d will be the highest degree of the polynomial
 - if d is finite -> g belong H will generalise
 - As far, we have proved how dvc can constraint the upper bound in this dichotomy 2D model. How about 3D model?
-- In general, dvc = dvc + 1 by proving dvc<= d+1 and dvc>= d+1
+- In general, dvc = d + 1 by proving dvc<= d+1 and dvc>= d+1
 - dvc mathematical meaning is the degrees of freedom, the effectvie number of prameters
 - In a practical conclusion, not mathematical statement
   - Proportionality in dvc and the number of sample needed to have same performance
-  - Rule of thumb, when N>= dvc, the performance is usually good 
+  - Rule of thumb, when 10*N>= dvc, the performance is usually good 
 
 - Bias is the difference between the average final hypothesis and target function (corresponds to the accuracy)
 - Variance is the variability of any hypothesis formated compared to the target function (corresponds to the precision)
