@@ -71,7 +71,7 @@ function clear_canvas() {
     cv.height = cv.height;
     ctx.fillStyle = "#FFFFFF";
     ctx.fillRect(0, 0, cv.width, cv.height);
-    document.getElementById('output').innerText = 'Handwritten Digit Recognition';
+    document.getElementById('output').innerText = 'Give me a digit!';
 }
 
 function image_process() {

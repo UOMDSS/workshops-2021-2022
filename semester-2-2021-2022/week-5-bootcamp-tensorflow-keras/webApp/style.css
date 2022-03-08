@@ -7,8 +7,14 @@ body > div {
 }
 
 #output {
-    font-family: 'Consolas', sans-serif;
+    font-family: 'Consolas', 'Arial', Helvetica, sans-serif;
     color: #101010;
+}
+
+@media (max-width: 710px) {
+    #output {
+        margin-top: 85px;
+    }
 }
 
 img {
