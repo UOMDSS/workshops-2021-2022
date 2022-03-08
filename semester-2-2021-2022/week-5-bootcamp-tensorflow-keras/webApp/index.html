@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WebApp - TensorFlow.js</title>
+    <link rel="stylesheet" href="/webApp/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <script src="/webApp/draw.js"></script>
+    <script>
+        // load model in TensorFlow.js
+        var model;
+        tf.loadGraphModel('/web_model/model.json').then(val => {
+            model = val;
+        });
+        // predict input pixels from canvas
+        function modelPredict(pixels) {
+            let imageTensor = tf.browser.fromPixels(pixels, 1).squeeze().expandDims(0).toFloat();
+            imageTensor = tf.sub(tf.scalar(1, 'float32'), imageTensor.div(tf.scalar(255, 'float32')));
+            imageTensor.print();
+            return model.predict(imageTensor).squeeze().argMax().dataSync()[0];
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <img src="https://www.mudss.co.uk/wp-content/uploads/2021/11/mudsssitelogo-300x92.png" alt="Mudss" height="50">
+        <h1 id="output">Handwritten Digit Recognition</h1>
+        <canvas id="cv" width="300" height="300"></canvas>
+        <br>
+        <button onclick="image_process()">Submit</button>
+        <button onclick="clear_canvas()">Clear</button>
+    </div>
+</body>
+</html>
