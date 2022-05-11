@@ -9,17 +9,5 @@ __pycache__/
 # Jupyter Notebook
 .ipynb_checkpoints
 
-*.png
-*.jpeg
-*.jpg
-*.gif
-*.mp4
-*.meta
-*.gz
-*.html
-*-ubyte
-*-py
-cache/
-
 # Avoid including drafts and notes
 **/drafts/
